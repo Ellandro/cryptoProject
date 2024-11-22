@@ -1,0 +1,18 @@
+    <div class="container mt-5">
+        <h3>Messages Reçus</h3>
+
+        <!-- Vérifier s'il y a des messages -->
+        {% if messages %}
+            <ul class="list-group">
+                {% for message in messages %}
+                    <li class="list-group-item">
+                        <strong>De : </strong> {{ message.sender }}<br>
+                        <strong>Message : </strong> {{ message.message }}<br>
+                        <small><i>{{ message.timestamp }}</i></small>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun message reçu.</p>
+        {% endif %}
+    </div>

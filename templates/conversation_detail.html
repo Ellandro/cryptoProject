@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Discussion</h2>
+    {% for message in messages %}
+        <div class="message mb-2 {% if message.sender_id == current_user.id %}text-end{% endif %}">
+            <strong>{{ message.sender.username }}</strong>: {{ message.message }}
+            <small class="text-muted">{{ message.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+        </div>
+    {% endfor %}
+
+    <form action="" method="POST" class="mt-4">
+        <div class="form-group">
+            <textarea class="form-control" name="message" rows="3" placeholder="Répondre..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
+    </form>
+</div>
+{% endblock %}

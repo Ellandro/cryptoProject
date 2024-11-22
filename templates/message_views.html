@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Message de {{ message.sender.username }}</h2>
+    <p><strong>Message :</strong> {{ message.message }}</p>
+    <p><strong>Statut :</strong> {% if message.is_read %}Lu{% else %}Non lu{% endif %}</p>
+
+
+</div>
+{% endblock %}
